@@ -64,6 +64,168 @@
             0% { transform: translateY(0); }
             100% { transform: translateY(-3px); }
         }
+
+        /* A calmer, more tactile hanji-and-jade finish */
+        :root {
+            color-scheme: light;
+            --ink: #263b33;
+            --jade: #285b4c;
+            --jade-dark: #1d4539;
+            --jade-soft: #e5efe8;
+            --paper: #fbf7ec;
+            --paper-deep: #efe5cf;
+            --wood: #79502d;
+            --coral: #b84d42;
+        }
+
+        body {
+            color: var(--ink);
+            background-color: #f6f0e2;
+            background-image:
+                radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.88), transparent 34%),
+                radial-gradient(ellipse at 90% 88%, rgba(196,155,92,.16), transparent 36%),
+                radial-gradient(rgba(119,91,49,.10) .7px, transparent .7px);
+            background-size: auto, auto, 12px 12px;
+            background-attachment: fixed;
+        }
+
+        header { padding: .65rem 0 .3rem; }
+        header h1 {
+            color: var(--jade-dark) !important;
+            letter-spacing: .045em;
+            text-shadow: 0 2px 0 rgba(255,255,255,.85), 0 8px 22px rgba(68,49,23,.12);
+        }
+        header h1 .text-red-600 { color: var(--coral) !important; }
+        header p {
+            color: #756047 !important;
+            letter-spacing: .04em;
+        }
+
+        main { gap: 1.15rem !important; }
+        main > div:first-child > div {
+            border-radius: 1.35rem;
+            box-shadow: 0 12px 28px rgba(67,51,27,.09), 0 2px 6px rgba(67,51,27,.05);
+        }
+        main > div:first-child > div:first-child {
+            background: rgba(255,253,247,.88);
+            border-color: rgba(177,145,91,.34);
+        }
+        #p1-card, #p2-card {
+            border-radius: 1rem;
+            padding: .9rem;
+        }
+        #p1-card { background-color: rgba(231,241,234,.86); }
+        #p2-card { background-color: rgba(249,235,229,.86); }
+        #p1-card button, #p2-card button {
+            min-height: 3.2rem;
+            border-radius: .8rem;
+        }
+
+        #yut-sticks-container {
+            min-height: 6.5rem;
+            background: linear-gradient(145deg, rgba(79,49,25,.13), rgba(255,255,255,.48));
+            border-color: rgba(121,80,45,.18);
+        }
+        .yut-stick {
+            height: 4rem;
+            width: 1.45rem;
+            border-color: #86572f;
+            background: linear-gradient(90deg, #d9b77b, #f6e6c4 48%, #c89d5d);
+            box-shadow: inset -3px -2px 5px rgba(78,45,16,.2), inset 2px 2px 5px rgba(255,255,255,.75), 0 3px 5px rgba(58,39,19,.18);
+        }
+        #throw-result-text { color: var(--jade-dark); }
+        #throw-btn {
+            background-image: linear-gradient(115deg, #93602d, #b27635 55%, #8d592a);
+            box-shadow: 0 7px 16px rgba(111,70,31,.22);
+        }
+        #throw-btn:hover:not(:disabled) { filter: brightness(1.06); transform: translateY(-1px); }
+        #confirm-move-btn:not(:disabled) {
+            background: linear-gradient(115deg, #28644f, #377b60);
+            box-shadow: 0 6px 14px rgba(38,91,69,.2);
+        }
+        #move-queue {
+            min-height: 2.7rem;
+            background: rgba(255,255,255,.82);
+            border-color: rgba(177,145,91,.3);
+        }
+        #game-log {
+            background: #f7f5ef;
+            border: 1px solid rgba(177,145,91,.13);
+            line-height: 1.55;
+        }
+
+        main > div:nth-child(2) {
+            padding: clamp(.7rem, 2vw, 1.25rem);
+            background: linear-gradient(145deg, #fffdf7, #f2e7d0 72%, #ead9b7);
+            border: 5px solid #704c2d;
+            box-shadow: 0 18px 42px rgba(56,42,24,.19), inset 0 0 0 2px rgba(255,255,255,.55);
+        }
+        #yut-board-svg { filter: drop-shadow(0 8px 12px rgba(68,48,24,.13)); }
+        #yut-board-svg > rect:first-child {
+            fill: #fbf7ec;
+            stroke: #88623a;
+        }
+        #yut-board-svg > rect:nth-child(2) { stroke: #d1ae72; opacity: .8; }
+        #yut-board-svg > line {
+            stroke: #527363;
+            stroke-width: 4;
+            stroke-linecap: round;
+            opacity: .9;
+        }
+        .board-node { transform-box: fill-box; transform-origin: center; }
+        .board-node:hover { filter: drop-shadow(0 2px 4px rgba(39,87,67,.28)); }
+        #svg-nodes-layer circle {
+            fill: #fffdf7;
+            stroke: #597664;
+            stroke-width: 3;
+        }
+        #svg-nodes-layer circle:nth-of-type(5n + 1) {
+            fill: #e5efe8;
+            stroke: #3e6b56;
+        }
+        #svg-nodes-layer text { fill: #79502d; letter-spacing: .02em; }
+        .target-node-highlight {
+            fill: rgba(209,151,57,.24) !important;
+            stroke: #bf7e27 !important;
+            stroke-width: 4 !important;
+        }
+        #yut-board-svg [filter^="drop-shadow"] { filter: drop-shadow(0 3px 5px rgba(29,44,35,.28)); }
+        main > div:nth-child(2) > div:last-child {
+            color: #355846;
+            background: rgba(226,237,222,.82);
+            border-color: rgba(86,125,91,.28);
+            line-height: 1.65;
+        }
+        #win-modal > div {
+            background: linear-gradient(145deg, #fffdf7, #f5ead2);
+            border-color: #b8863b;
+            box-shadow: 0 24px 70px rgba(21,30,22,.3);
+        }
+
+        button { -webkit-tap-highlight-color: transparent; }
+        button:focus-visible {
+            outline: 3px solid #d5a64f;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: .8rem !important; }
+            header { margin-bottom: .2rem !important; }
+            main { gap: .85rem !important; }
+            main > div:nth-child(2) { border-width: 4px; border-radius: 1.35rem; }
+            #yut-board-svg { min-height: 0; }
+            main > div:nth-child(2) > div:last-child { padding: .65rem .8rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-between p-2 md:p-6 text-gray-800">
